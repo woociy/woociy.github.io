@@ -1,0 +1,10 @@
+    img {
+      width: 20%;
+    }
+    
+    img.myimg {
+      width: 50%;}
+    
+    
+      table, th, td
+{border: red; background-color: pink; border:2px;}
