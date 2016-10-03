@@ -1,0 +1,18 @@
+style{background-color: #ffb}
+.header{background-color: pink;  
+   padding-bottom:20px;
+   margin-bottom:32px;
+   border-bottom: 1px solid #cd1 
+    ; 
+     }
+   div.header > div.container{
+       background-color:cornflowerblue;
+       height: 400px;
+   }
+.footer>.container{background-color: pink;
+padding-bottom:40px;
+  height: 300px;}
+  #zhang{color: wheat;}
+  div{background-color: black]}
+.sider{background-color: #aabbcc;}
+.main{border-color: sandybrown;}                                                   
