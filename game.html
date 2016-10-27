@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" 
+  integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj"
+    crossorigin="anonymous">
+</head>
+
+<body>
+
+
+<style>
+span{display:inline-block;margin:2px;width:30px;height:30px;cursor:pointer;}
+</style>
+</head>
+<body>
+<div style="position:absolute;left:2px;top:2px;width:660px;">
+<canvas id="canvas" width="660" height="660"></canvas>
+</div>
+<div style="position:absolute;left:700px;width:300px;">
+<p><input type=button value="New Game" onclick=init()><span id="hint"></span></p>
+<p>
+<span style="background:#884cb8;" onclick=drawColor(0)></span>
+<span style="background:#f84870;" onclick=drawColor(1)></span>
+<span style="background:#f87c00;" onclick=drawColor(2)></span>
+<span style="background:#f8dc00;" onclick=drawColor(3)></span>
+<span style="background:#10d000;" onclick=drawColor(4)></span>
+<span style="background:#106cf8;" onclick=drawColor(5)></span>
+</p>
+<div>
+<script> 
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+//定义填充的颜色
+var color=['#884cb8','#f84870','#f87c00','#f8dc00','#10d000','#106cf8'];
+//格子区域
+var board;
+//宽度，高度最难级别22格
+var level=22;
+//当前颜色索引 0-5
+var currentColorIndex;
+//一个标志位仅在初始化时开启
+var flag;
+//显示步数的div
+var hint=document.getElementById('hint');
+//记录点击步数
+var step;
+//初始化数组，随即产生颜色index并存储
+function init(){
+    board=new Array();
+    for(i=0;i<level;i++){
+        var row=new Array();
+        for(j=0;j<level;j++){
+            row[j]=Math.floor(Math.random()*6);     
+        }
+        board[i]=row;
+    }
+    //当前颜色等于左上角的色块
+    currentColorIndex=board[0][0];
+    //翻转过的格子存储-1值，先另左上角的为-1
+    board[0][0]=-1;
+    //一下几行自己看吧，一言难尽
+    flag=false;
+    drawColor(currentColorIndex);
+    flag=true;
+    _drawBoard();
+    step=0;
+    hint.innerText=step+'/36'
+}
+ 
+//绘制格子区域
+function _drawBoard(){
+    context.fillStyle=color[currentColorIndex];
+    context.fillRect(0,0,30*level,30*level);
+    for(i=0;i<level;i++){
+        for(j=0;j<level;j++){
+            if(board[i][j]!=-1){
+            context.fillStyle=color[board[i][j]];
+            context.fillRect(j*30,i*30,30,30);
+            }
+        }
+    }
+    hint.innerText=step+'/36'
+}
+//染色
+function drawColor(color_index){
+    //点击当前颜色值无效。初始化时除外。
+    if(color_index==currentColorIndex && flag) return;
+    for(i=0;i<level;i++){
+        for(j=0;j<level;j++){
+            if(board[i][j]==-1){
+                _findSameColor(i,j,color_index);
+            }
+        }
+    }
+    step++;
+    currentColorIndex=color_index;
+    _drawBoard();
+}
+//递归寻找同色格子
+function _findSameColor(cell_x,cell_y,color_index){
+    if(cell_x-1>=0 && board[cell_x-1][cell_y]==color_index) {board[cell_x-1][cell_y]=-1;_findSameColor(cell_x-1,cell_y,color_index);}
+    if(cell_x+1<level && board[cell_x+1][cell_y]==color_index) {board[cell_x+1][cell_y]=-1;_findSameColor(cell_x+1,cell_y,color_index);}
+    if(cell_y-1>=0 && board[cell_x][cell_y-1]==color_index) {board[cell_x][cell_y-1]=-1;_findSameColor(cell_x,cell_y-1,color_index);}
+    if(cell_y+1<level && board[cell_x][cell_y+1]==color_index) {board[cell_x][cell_y+1]=-1;_findSameColor(cell_x,cell_y+1,color_index);}
+}
+</script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
+    crossorigin="anonymous"></script>
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
+    crossorigin="anonymous"></script>-->
+
+   
+
+</body>
+
+</html>
