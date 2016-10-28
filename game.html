@@ -5,11 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Document</title>
+    <title>game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+    <!--圖標鏈接-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 
 <body>
+    <!-- 導覽例-->
+    <div class="container-fluid">
+        <nav class="navbar navbar-full navbar-fixed-top navbar-dark bg-inverse bg-faded">
+            <!--下5行为隐藏按钮代码-->
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" aria-controls="exCollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    &#9776;
+  </button>
+            <div class="collapse " id="exCollapsingNavbar">
+                <div class="bg-inverse p-a-1 ">
+
+                    <div class="container">
+                        <a class="navbar-brand m-b-0" href="#">Project Name</a>
+
+                        <ul class="nav navbar-nav ">
+                            <li class="nav-item">
+                                <div class="btn-group">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					.
+				</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item " href="./ex_js001.html">沒</a>
+                                        <a class="dropdown-item  " href="./ex_js002.html">什</a>
+                                        <a class="dropdown-item" href="#">麽</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">用</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="nav navbar-nav pull-md-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./travel01.html">Travel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./game.html">Game</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!--以下為游戲代碼-->
     <style>
         span {
             display: inline-block;
@@ -21,12 +74,16 @@
     </style>
     </head>
 
-    <body>
-        <div style="position:absolute;left:2px;top:2px;width:660px;">
-            <canvas id="canvas" width="660" height="660"></canvas>
+    <body style="background:#f5deb3;">
+        <!--定義按鈕佈局-->
+        <div style="position:absolute;margin-top:120px;left:600px;width:300px;">
+            <p><input type=button value="請開始你的表演" onclick=newgame()><span id="newgame"></span></p>
         </div>
-        <div style="position:absolute;left:700px;width:300px;">
-            <p><input type=button value="New Game" onclick=init()><span id="hint"></span></p>
+        <!--定義色塊佈局-->
+        <div style="position:absolute;margin-top:170px;left:470px;width:660px;">
+            control<i class="fa fa-hand-o-right" style="font-size:24px"></i>
+        </div>
+        <div style="position:absolute;margin-top:170px;left:550px;width:300px;">
             <p>
                 <span style="background:#884cb8;" onclick=drawColor(0)></span>
                 <span style="background:#f84870;" onclick=drawColor(1)></span>
@@ -35,16 +92,25 @@
                 <span style="background:#10d000;" onclick=drawColor(4)></span>
                 <span style="background:#106cf8;" onclick=drawColor(5)></span>
             </p>
-            <div>
+        </div>
+        <!--定義手勢圖標佈局-->
+        <div style="position:absolute;margin-top:250px;left:380px;width:660px;">
+            start <i class="fa fa-hand-o-right" style="font-size:24px"></i>
+        </div>
+        <!--定義游戲區佈局-->
+        <div style="position:absolute;margin-top:250px;left:450px;width:660px;">
+            <canvas id="gamearea" width="660" height="660"></canvas>
+        </div>
 
 
 
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
 
 
 
-                <script src="./js/game.js"></script>
+        <script src="./js/bootstrap.js"></script>
+        <script src="./js/game.js"></script>
     </body>
 
 </html>

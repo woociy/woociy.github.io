@@ -1,21 +1,24 @@
-var canvas = document.getElementById('canvas');
+//規定的定義（用於填充色塊）
+var canvas = document.getElementById('gamearea');
 var context = canvas.getContext('2d');
-//定义填充的颜色
+//定義填充的顔色
 var color = ['#884cb8', '#f84870', '#f87c00', '#f8dc00', '#10d000', '#106cf8'];
-//格子区域
+//設置一個游戲區
 var board;
-//宽度，高度最难级别22格
-var level = 22;
-//当前颜色索引 0-5
+//定義游戲區宽度，高度16格
+var level = 16;
+//設定一個当前颜色作爲標準
 var currentColorIndex;
-//一个标志位仅在初始化时开启
+//一個標志位，初始化時使用
 var flag;
-//显示步数的div
+//顯示步數
 var hint = document.getElementById('hint');
-//记录点击步数
+//記錄點擊的次數
 var step;
+
+
 //初始化数组，随即产生颜色index并存储
-function init() {
+function newgame() {
     board = new Array();
     for (i = 0; i < level; i++) {
         var row = new Array();
@@ -24,20 +27,21 @@ function init() {
         }
         board[i] = row;
     }
-    //当前颜色等于左上角的色块
+    //設定當前顔色魏左上角顔色（初始）
     currentColorIndex = board[0][0];
-    //翻转过的格子存储-1值，先另左上角的为-1
+    //令左上角色塊為-1值（邏輯設定：變色后的色塊都為-1 用於判斷下一次翻轉）
     board[0][0] = -1;
-    //一下几行自己看吧，一言难尽
+    //
     flag = false;
     drawColor(currentColorIndex);
     flag = true;
     _drawBoard();
     step = 0;
-    hint.innerText = step + '/36'
+    hint.innerText = step + '/27'
 }
 
-//绘制格子区域
+
+//繪製游戲區
 function _drawBoard() {
     context.fillStyle = color[currentColorIndex];
     context.fillRect(0, 0, 30 * level, 30 * level);
@@ -49,11 +53,15 @@ function _drawBoard() {
             }
         }
     }
-    hint.innerText = step + '/36'
+    hint.innerText = step + '/27'
+    if (step == 27) { lose(); }
 }
+
+
+
 //染色
 function drawColor(color_index) {
-    //点击当前颜色值无效。初始化时除外。
+    //點擊同色無效，以便不同色翻轉
     if (color_index == currentColorIndex && flag) return;
     for (i = 0; i < level; i++) {
         for (j = 0; j < level; j++) {
@@ -66,14 +74,32 @@ function drawColor(color_index) {
     currentColorIndex = color_index;
     _drawBoard();
 }
-//递归寻找同色格子
+
+
+
+
+//按規律尋找同色色塊
 function _findSameColor(cell_x, cell_y, color_index) {
-    if (cell_x - 1 >= 0 && board[cell_x - 1][cell_y] == color_index) { board[cell_x - 1][cell_y] = -1;
-        _findSameColor(cell_x - 1, cell_y, color_index); }
-    if (cell_x + 1 < level && board[cell_x + 1][cell_y] == color_index) { board[cell_x + 1][cell_y] = -1;
-        _findSameColor(cell_x + 1, cell_y, color_index); }
-    if (cell_y - 1 >= 0 && board[cell_x][cell_y - 1] == color_index) { board[cell_x][cell_y - 1] = -1;
-        _findSameColor(cell_x, cell_y - 1, color_index); }
-    if (cell_y + 1 < level && board[cell_x][cell_y + 1] == color_index) { board[cell_x][cell_y + 1] = -1;
-        _findSameColor(cell_x, cell_y + 1, color_index); }
+    if (cell_x - 1 >= 0 && board[cell_x - 1][cell_y] == color_index) {
+        board[cell_x - 1][cell_y] = -1;
+        _findSameColor(cell_x - 1, cell_y, color_index);
+    }
+    if (cell_x + 1 < level && board[cell_x + 1][cell_y] == color_index) {
+        board[cell_x + 1][cell_y] = -1;
+        _findSameColor(cell_x + 1, cell_y, color_index);
+    }
+    if (cell_y - 1 >= 0 && board[cell_x][cell_y - 1] == color_index) {
+        board[cell_x][cell_y - 1] = -1;
+        _findSameColor(cell_x, cell_y - 1, color_index);
+    }
+    if (cell_y + 1 < level && board[cell_x][cell_y + 1] == color_index) {
+        board[cell_x][cell_y + 1] = -1;
+        _findSameColor(cell_x, cell_y + 1, color_index);
+    }
+}
+
+//游戲失敗彈窗
+function lose() {
+    alert("沉迷游戲  無法自拔 英雄? 不如再來一把!?");
+
 }
