@@ -1,5 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
 
-function sayHello() {
-    console.log("Hello");
-    $("#output").text("Hello");
-}
+<h1>My First Web Page</h1>
+<p>My first paragraph.</p>
+
+<script>
+console.log(5 + 6);
+</script>
+
+</body>
+</html>
