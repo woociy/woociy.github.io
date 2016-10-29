@@ -1,6 +1,6 @@
-function sayhello(){
-    var str =$("#input").val();
-    $("#output").text(str);
+function sayhello() {
+    //  var str =$("#input").val();
+    $("#output").text("你最可愛");
 
 }
-$("#text").bind('click',sayhello);
+$("#text").bind('click', sayhello);

@@ -12,9 +12,9 @@ var currentColorIndex;
 //一個標志位，初始化時使用
 var flag;
 //顯示步數
-var hint = document.getElementById('hint');
+var step = document.getElementById('step');
 //記錄點擊的次數
-var step;
+var click;
 
 
 //初始化数组，随即产生颜色index并存储
@@ -36,8 +36,8 @@ function newgame() {
     drawColor(currentColorIndex);
     flag = true;
     _drawBoard();
-    step = 0;
-    hint.innerText = step + '/27'
+    click = 0;
+    step.innerText = click + '/27'
 }
 
 
@@ -53,8 +53,8 @@ function _drawBoard() {
             }
         }
     }
-    hint.innerText = step + '/27'
-    if (step == 27) { lose(); }
+    step.innerText = click + '/27'
+    if (click == 27) { lose(); }
 }
 
 
@@ -70,7 +70,7 @@ function drawColor(color_index) {
             }
         }
     }
-    step++;
+    click++;
     currentColorIndex = color_index;
     _drawBoard();
 }
