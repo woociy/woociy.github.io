@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>game</title>
+    <style>
+        span {
+            display: inline-block;
+            margin: 2px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
     <!--圖標鏈接-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 
-<body>
+<body style="background-image:url(img/jj.jpg);background-size:1430px 780px;background-repeat:no-repeat;">
     <!-- 導覽例-->
     <div class="container-fluid">
         <nav class="navbar navbar-full navbar-fixed-top navbar-dark bg-inverse bg-faded">
@@ -63,54 +72,42 @@
     </div>
 
     <!--以下為游戲代碼-->
-    <style>
-        span {
-            display: inline-block;
-            margin: 2px;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-        }
-    </style>
-    </head>
-
-    <body style="background-image:url(img/jj.jpg);background-size:1430px 780px;background-repeat:no-repeat;">
-        <!--定義按鈕佈局-->
-        <div style="position:absolute;margin-top:120px;left:600px;width:300px;">
-            <p><input type=button value="請開始你的表演" onclick=newgame()><span id="step"></span></p>
-        </div>
-        <!--定義色塊佈局-->
-        <div style="position:absolute;margin-top:170px;left:470px;width:500px;">
-            control<i class="fa fa-hand-o-right" style="font-size:24px"></i>
-        </div>
-        <div style="position:absolute;margin-top:170px;left:550px;width:300px;">
-            <p>
-                <span style="background:#884cb8;" onclick=drawColor(0)></span>
-                <span style="background:#f84870;" onclick=drawColor(1)></span>
-                <span style="background:#f87c00;" onclick=drawColor(2)></span>
-                <span style="background:#f8dc00;" onclick=drawColor(3)></span>
-                <span style="background:#10d000;" onclick=drawColor(4)></span>
-                <span style="background:#106cf8;" onclick=drawColor(5)></span>
-            </p>
-        </div>
-        <!--定義手勢圖標佈局-->
-        <div style="position:absolute;margin-top:250px;left:380px;width:500px;">
-            start <i class="fa fa-hand-o-right" style="font-size:24px"></i>
-        </div>
-        <!--定義游戲區佈局-->
-        <div style="position:absolute;margin-top:250px;left:450px;width:500px;">
-            <canvas id="gamearea" width="500" height="500"></canvas>
-        </div>
+    <!--定義按鈕佈局-->
+    <div style="position:absolute;margin-top:120px;left:600px;width:300px;">
+        <p><input type=button value="請開始你的表演" onclick=newgame()><span id="step"></span></p>
+    </div>
+    <!--定義色塊佈局-->
+    <div style="position:absolute;margin-top:170px;left:470px;width:500px;">
+        control<i class="fa fa-hand-o-right" style="font-size:24px"></i>
+    </div>
+    <div style="position:absolute;margin-top:170px;left:550px;width:300px;">
+        <p>
+            <span style="background:#884cb8;" onclick=drawColor(0)></span>
+            <span style="background:#f84870;" onclick=drawColor(1)></span>
+            <span style="background:#f87c00;" onclick=drawColor(2)></span>
+            <span style="background:#f8dc00;" onclick=drawColor(3)></span>
+            <span style="background:#10d000;" onclick=drawColor(4)></span>
+            <span style="background:#106cf8;" onclick=drawColor(5)></span>
+        </p>
+    </div>
+    <!--定義手勢圖標佈局-->
+    <div style="position:absolute;margin-top:250px;left:380px;width:500px;">
+        start <i class="fa fa-hand-o-right" style="font-size:24px"></i>
+    </div>
+    <!--定義游戲區佈局-->
+    <div style="position:absolute;margin-top:250px;left:450px;width:500px;">
+        <canvas id="gamearea" width="500" height="500"></canvas>
+    </div>
 
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
 
 
 
-        <script src="./js/bootstrap.js"></script>
-        <script src="./js/game.js"></script>
-    </body>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/game.js"></script>
+</body>
 
 </html>
