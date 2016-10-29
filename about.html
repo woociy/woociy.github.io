@@ -9,10 +9,11 @@
     <title>Web程式設計</title>
 
     <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/ex_js001.css">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 
-<body>
+<body style="background-image:url(img/wo.jpg);background-position:1px 10px;background-attachment:fixed;background-repeat: no-repeat;">
 
     <!-- 導覽例-->
     <div class="container-fluid">
@@ -65,37 +66,80 @@
     </div>
 
     <!-- 內文 -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-7" style="background-image:url(img/.jpg);background-attachment:fixed;">
+            <center>
+                <h1>
+                    <font size="+10"><b>Woociy</b></font>
+                </h1>
 
-                <div class="panel" style="margin:50px;">
+                <p>
+                    <font size="+2"></font>
+                </p>
 
-                    <input id="input" class="form-control" type="text">
-                    <button onclick="sayhello();" type="button" class="btn btn-primary">測試</button>
-                    <div id="output"></div>
+                <!--大段文字-->
+                <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+                 
+                    <a href="http://www.w3schools.com/w3css/tryw3css_templates_bw_portfolio.htm#about" target="_blank"><h2>About</h2></a>
+                    <hr class="w3-opacity">
+                    <p>
+                        乌云在我们心里搁下一块阴影 我聆听沉寂已久的心情 清晰透明 就像美丽的风景 <br>总在回忆里才看的清 被伤透的心能不能够继续爱我 我用力牵起没温度的双手 过往温柔已经被时间上锁 <br> 只剩挥散不去的难过 缓缓飘落的枫叶像思念 我点燃烛火温暖岁末的秋天 极光掠夺天边 <br> 北风掠过想你的容颜 我把爱烧成了落叶　却换不回熟悉的那张脸 缓缓飘落的枫叶像思念 <br> 为何挽回要赶在冬天来之前 爱你穿越时间　两行来自秋末的眼泪 让爱渗透了地面　我要的只是妳在我身边
+                    </p>
+
+                    <!--進度條-->
+                    <h3 class="w3-padding-16">character</h3>
+                    <p class="w3-wide">戰鬥值</p>
+                    <div class="w3-progress-container">
+                        <div class="w3-progressbar" style="width:95%">
+                            <div class="w3-center w3-text-white">95%</div>
+                        </div>
+                    </div>
+                    <p class="w3-wide">高冷度</p>
+                    <div class="w3-progress-container">
+                        <div class="w3-progressbar" style="width:85%">
+                            <div class="w3-center w3-text-white">85%</div>
+                        </div>
+                    </div>
+                    <p class="w3-wide">抗壓力</p>
+                    <div class="w3-progress-container">
+                        <div class="w3-progressbar" style="width:80%">
+                            <div class="w3-center w3-text-white">80%</div>
+                        </div>
+                    </div><br>
                 </div>
+
+
+                <!-- 聯繫我 -->
+                <div class="w3-padding-32 w3-content w3-text-grey" id="contact">
+                    <hr class="w3-opacity ">
+
+                    <div class="w3-section ">
+                        <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right "></i> Taoyuan china</p>
+                        <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right "></i> Phone: +0900 xxxx</p>
+                        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right "> </i> Email: 954466362@qq.com</p>
+                    </div>
+
+                    <img src="img/wo2.jpg " style="margin-top:5px;border:2px #ccc solid;padding:10px; "><br>
+            </center>
+            </div>
+
+            <div class="container " style="margin-top:150px; ">
             </div>
         </div>
     </div>
 
-    <!--頁尾-->
-    <div class="footer">
-        <div class="container">
-
-        </div>
-    </div>
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js " integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js " integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB " crossorigin="anonymous "></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js " integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU "
+        crossorigin="anonymous "></script>-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
-        crossorigin="anonymous"></script>-->
-
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/js002.js"></script>
-    <!--<script src="./js/ex_js001.js"></script>-->
+    <script src="./js/bootstrap.js "></script>
+    <script src="./js/js002.js "></script>
+    <!--<script src="./js/ex_js001.js "></script>-->
 
 </body>
 
