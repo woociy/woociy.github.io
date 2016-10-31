@@ -103,3 +103,5 @@ function lose() {
     alert("沉迷游戲  無法自拔 英雄? 不如再來一把!?");
 
 }
+
+$('#example').tooltip(options);
