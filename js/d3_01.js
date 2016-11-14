@@ -20,11 +20,13 @@ function movex() {
     $('#output_x').text(x1);
 
 }
+
 function movey() {
     var y1 = Math.floor(Math.random() * 10)*16+110;
     $('#output_y').text(y1);
-
 }
+
+
 $("#001").bind('click', movex);
 $("#002").bind('click', movey);
 $("#003").bind('click', move);
