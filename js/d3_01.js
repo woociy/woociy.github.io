@@ -1,4 +1,3 @@
-
 var svgctrl = d3.select('svg');
 var c1 = svgctrl.append('circle');
 c1.attr('cx', 300).attr('cy', 100).attr('r', 10).attr('stroke-width', 3).attr('fill', 'red');
@@ -26,3 +25,4 @@ function movey() {
 $("#001").bind('click', movex);
 $("#002").bind('click', movey);
 $("#003").bind('click', move);
+
